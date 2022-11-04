@@ -580,7 +580,7 @@ static void set_section_perms(struct section_perm *perms, int n, bool set,
 		     addr += SECTION_SIZE) {
 			pmd_t *pmd;
 
-			pmd = pmd_offset(pud_offset(pgd_offset(mm, addr),
+			pmd = pmd_offset(pud_offset(p4d_offset(pgd_offset(mm, addr),addr),
 						addr), addr);
 			if (pmd_bad(*pmd))
 				section_update(addr, perms[i].mask,
